@@ -1,27 +1,28 @@
-# Workspace
+# svg-line-chart-test
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.2.
+Simple SVG Line Graph for Angular Applications.
 
-## Development server
+# Warning
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Library is under active development.
 
-## Code scaffolding
+# Getting started
+Step 1: Install: svg-line-chart-test
+NPM
+`npm i svg-line-chart-test`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+Step 2: Import the SvgLineChartTestModule module:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+`import { SvgLineChartTestModule } from 'svg-line-chart-test';
 
-## Running unit tests
+@NgModule({
+  declarations: [AppComponent],
+  imports: [SvgLineChartTestModule],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Inside your HTML component:
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+`<lib-svg-line-chart-test [amt]="w"></lib-svg-line-chart-test>`
