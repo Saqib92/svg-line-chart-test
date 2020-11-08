@@ -1,0 +1,47 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "svg-line-chart-test": {
+      "projectType": "library",
+      "root": "projects/svg-line-chart-test",
+      "sourceRoot": "projects/svg-line-chart-test/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/svg-line-chart-test/tsconfig.lib.json",
+            "project": "projects/svg-line-chart-test/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/svg-line-chart-test/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/svg-line-chart-test/src/test.ts",
+            "tsConfig": "projects/svg-line-chart-test/tsconfig.spec.json",
+            "karmaConfig": "projects/svg-line-chart-test/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/svg-line-chart-test/tsconfig.lib.json",
+              "projects/svg-line-chart-test/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "defaultProject": "svg-line-chart-test"
+}

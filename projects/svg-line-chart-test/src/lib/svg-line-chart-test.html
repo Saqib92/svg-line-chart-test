@@ -1,0 +1,55 @@
+<div id="stats_box" style="visibility: visible!important;" [ngStyle]="{ left: stats_box.x + 'px' }">
+  <div class="line-card" id="ggg" [ngStyle]="{ top: stats_box.y + 'px' }">
+    <div class="card-wrapper inside-card text-left">
+      Tooltip content
+      {{amount}}
+    </div>
+  </div>
+</div>
+
+<div>
+  <svg viewBox="0 0 1540 400" id="mousemove" (mousemove)="move_box($event)">
+    <defs>
+      <pattern id="pattern-2" viewBox="-10 13 181 180" patternUnits="userSpaceOnUse" width="100" height="100">
+        <!-- vertical lines -->
+        <rect x="86.5" y="71.3" width="6.9" height="180.6" style="fill: gray;"
+          transform="matrix(1, 0, 0, 1, -9.2, -57.9)" />
+
+        <!-- horizontal lines -->
+        <rect x="86.5" y="80" width="6.9" height="180.6" style="fill: gray; stroke-width: 1;"
+          transform="matrix(0, 1, -1, 0, 242, 13)" />
+      </pattern>
+
+      <pattern id="pattern-3" patternTransform="55, 0, 0, 0.36, 24.5, 0" xlink:href="#pattern-2" />
+
+      <pattern id="square_grid" x="0" y="0" width="55" height="36.4" patternUnits="userSpaceOnUse">
+        <rect x="0" y="0" width="100%" height="100%" style="stroke: gray; fill: transparent;" />
+      </pattern>
+
+      <clipPath id="grid_space">
+        <rect x="0" y="0" width="1500" height="378" fill="transprent" />
+      </clipPath>
+    </defs>
+
+    <rect #grey_background id="grey_background" width="1560" height="400" style="fill: #f3f3f3;" />
+    <rect #grid_background id="grid_background" x="0" y="0" width="1500" height="380"
+      style="fill: url(#square_grid); fill-opacity: 0.5;" transform="translate(0, 380) scale(1,-1)" />
+
+    <g style="clip-path: url(#grid_space);">
+      <path id="path1" class="graph_line active" stroke-linejoin="round"
+        d="M 1500,380 L 0,380 L 0,380 l0,0 C 57.5,380 85,380 100,380 C 115,380 135,380 150,380 C 165,380 185,380 200,380 C 215,380 235,380 250,380 C 265,380 285,380 300,380 C 315,380 335,380 350,380 C 365,380 385,380 400,380 C 415,380 435,390.8 450,380 C 465,369.2 485,308 500,308 C 515,308 535,369.2 550,380 C 565,390.8 585,388.64 600,380 C 615,371.36 635,322.4 650,322.4 C 665,322.4 685,371.36 700,380 C 715,388.64 735,380 750,380 C 765,380 785,380 800,380 C 815,380 835,380 850,380 C 865,380 885,380 900,380 C 915,380 935,405.92 950,380 C 965,354.08 985,207.2 1000,207.2 C 1015,207.2 1035,354.08 1050,380 C 1065,405.92 1085,380 1100,380 C 1115,380 1135,380 1150,380 C 1165,380 1185,380 1200,380 C 1215,380 1235,380 1250,380 C 1265,380 1285,390.8 1300,380 C 1315,369.2 1335,308 1350,308 C 1365,308 1385,395.12 1400,380 C 1415,364.88 1435,207.2 1450,207.2 C 1465,207.2 1492.5,354.08 1500,380 z"
+        fill="red" style="stroke:black;" />
+
+      <path id="path1" class="graph_line active" stroke-linejoin="round"
+        d="M 1500,380 L 0,380 L 0,207.2 l0,0 C 57.5,233.11999999999998 85.00000000000001,354.08 100,380 C 115,405.92 135,380 150,380 C 165,380 185,380 200,380 C 215,380 235,380 250,380 C 265,380 285,416.72 300,380 C 315,343.28 335,135.2 350,135.2 C 365,135.2 385,343.28 400,380 C 415,416.72 435,388.64 450,380 C 465,371.36 485,322.4 500,322.4 C 515,322.4 535,371.36 550,380 C 565,388.64 585,380 600,380 C 615,380 635,380 650,380 C 665,380 685,397.28 700,380 C 715,362.72 735,264.8 750,264.8 C 765,264.8 785,388.64 800,380 C 815,371.36 835,207.2 850,207.2 C 865,207.2 885,380 900,380 C 915,380 935,233.12 950,207.2 C 965,181.27999999999997 985,181.27999999999997 1000,207.2 C 1015,233.12 1035,354.08 1050,380 C 1065,405.92 1085,380 1100,380 C 1115,380 1135,380 1150,380 C 1165,380 1185,380 1200,380 C 1215,380 1235,380 1250,380 C 1265,380 1285,380 1300,380 C 1315,380 1335,380 1350,380 C 1365,380 1385,380 1400,380 C 1415,380 1435,397.28 1450,380 C 1465,362.72 1492.5,282.08 1500,264.8 z"
+        fill="transparent" style="stroke: blue;"></path>
+
+      <use id="use" xlink:href="#path1" height="90%" />
+    </g>
+    <g class="y-axis" transform="translate(0,20)">
+      <text *ngFor="let per of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" [attr.y]="36 * per" x="1520">
+        {{ (10 - per) * 10 }}%
+      </text>
+    </g>
+  </svg>
+</div>
